@@ -192,10 +192,7 @@ int deleteNode(headNode* h, int key) {
  * list의 마지막 노드 삭제
  */
 int deleteLast(headNode* h) {
-	headNode* targetNode = h->first;
-	h->first = targetNode->first;
-	free(targetNode);
-	return 0;
+	
 }
 
 
@@ -203,7 +200,21 @@ int deleteLast(headNode* h) {
  * 리스트의 링크를 역순으로 재 배치
  */
 int invertList(headNode* h) {
-
+	headnode *p;
+	headnode *q;
+	headnode *r;
+	
+	q=NULL;
+	r=NULL;
+	p=h->first;
+	while(p!=NULL){
+	r=q;
+	q=p;
+	p=p->first;
+	q->first=r;
+	
+	h->first=q;
+	
 	return 0;
 }
 
